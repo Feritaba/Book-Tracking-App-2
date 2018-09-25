@@ -1,0 +1,47 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Foroozan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\Foroozan\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Foroozan\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Users\Foroozan\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\Foroozan\AppData\Local\Programs\Python\Python37;C:\Users\Foroozan\scoop\shims;C:\Users\Foroozan\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\Foroozan\AppData\Local\Microsoft\WindowsApps;C:\Users\Foroozan\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  8.11.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\Foroozan\desktop\package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at C:\Users\Foroozan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Foroozan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:92:30)
+      at C:\Users\Foroozan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:103:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "dependencies": {
+      "prop-types": "^15.6.1",
+      "react": "^16.3.2",
+      "react-dom": "^16.3.2"
+    },
+    "devDependencies": {
+      "react-scripts": "1.1.4"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
