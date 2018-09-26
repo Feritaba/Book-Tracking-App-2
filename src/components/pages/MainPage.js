@@ -11,6 +11,7 @@ class MainPage extends React.Component {
 			books: []
 		}
 	}
+
 	componentDidMount(){
 		BooksAPI.getAll()
 		.then(resp => {
@@ -20,13 +21,13 @@ class MainPage extends React.Component {
 	}
 
 	updateBook = (book, shelf)=>{
-    BooksAPI.update(book, shelf)
-    .then(resp => {
-      book.shelf = shelf;
-      this.setState(state => ({
-      	books: state.books.filter(b => b.id !== book.id).concat([book])	
-      }));
-    });
+    	BooksAPI.update(book, shelf)
+    	.then(resp => {
+      		book.shelf = shelf;
+      		this.setState(state => ({
+      			books: state.books.filter(b => b.id !== book.id).concat([book])	
+      		}));
+    	});
   	}
 
 	render() {

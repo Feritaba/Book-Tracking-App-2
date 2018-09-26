@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../../BooksAPI'
 import Shelf from '../Shelf';
 import Book from '../Book';
-class SearchPage extends React.Component {
 
-    constructor(props){
+class SearchPage extends React.Component {
+  constructor(props){
     super(props);
     this.state = {
       books: [],
@@ -13,6 +13,7 @@ class SearchPage extends React.Component {
       query: ""
     }
   }
+
   componentDidMount(){
     BooksAPI.getAll()
     .then(resp => {
@@ -25,34 +26,35 @@ class SearchPage extends React.Component {
     this.setState({query: query}, this.submitSearch);
   }
 
-submitSearch() {
-  if(this.state.query === '' || this.state.query === undefined) {
-    return this.setState({results:[]});
-}
-
-BooksAPI.search(this.state.query.trim()).then(res => {
-  console.log(res);
-  if (res.error) {
-    return this.setState ({results:[]});
-  }
-  else {
-    res.forEach(b=>{
-      let f = this.state.books.filter(B => B.id === b.id);
-      if(f[0]) {b.shelf = f[0].shelf;}
-    });
-    return this.setState ({results:res});
-  }
-});
-}
-    updateBook = (book, shelf)=>{
-    BooksAPI.update(book, shelf)
-    .then(resp => {
-      book.shelf = shelf;
-      this.setState(state => ({
-        books: state.books.filter(b => b.id !== book.id).concat([book]) 
-      }));
-    });
+  submitSearch() {
+    if(this.state.query === '' || this.state.query === undefined) {
+      return this.setState({results:[]});
     }
+
+    BooksAPI.search(this.state.query.trim()).then(res => {
+      console.log(res);
+      if (res.error) {
+        return this.setState ({results:[]});
+      }
+      else {
+        res.forEach( b=> {
+          let f = this.state.books.filter(B => B.id === b.id);
+          if(f[0]) {b.shelf = f[0].shelf; }
+        });
+        return this.setState ({results:res});
+      }
+    });
+  }
+
+  updateBook = (book, shelf)=> {
+      BooksAPI.update(book, shelf)
+      .then(resp => {
+        book.shelf = shelf;
+        this.setState(state => ({
+          books: state.books.filter(b => b.id !== book.id).concat([book]) 
+        }));
+      });
+  }
 
   render() {
     return (
@@ -74,6 +76,6 @@ BooksAPI.search(this.state.query.trim()).then(res => {
       </div>
     );
   }
-
 }
+
 export default SearchPage;
